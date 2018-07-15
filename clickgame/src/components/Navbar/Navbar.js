@@ -6,8 +6,7 @@ const Navbar = props => (
   <nav class="navbar navbar-toggler navbar-light ">
   
   <ul>
-  <li className="Left">Test your momery</li>
-  <li className="Center"> {props.rightWrong}</li>
+  <li className="Left"> Clicky Game </li>
   <li className="Right">Score: {props.score}</li>
   <li className="Right">highScore: {props.highScore}</li>
 </ul>

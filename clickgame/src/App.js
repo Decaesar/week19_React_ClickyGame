@@ -15,45 +15,76 @@ class App extends Component {
     imageClicked: [],
     score: 0,
     highScore: 0,
-    rightWrong:"",
+    printResult:"",
   };
 
   userClick = event => {
-    const currentImage = event.target.alt;
-    const imageAleardyClicked =
-        this.state.imageClicked.indexOf(currentImage) > -1;
+  event.preventDefault();
+
+const currentImage = event.target.alt;
+console.log(event.target.alt);
+const imageAleardyClicked =
+    this.state.imageClicked.indexOf(currentImage) > -1;
+
+    console.log("image clicked" + imageAleardyClicked);
+    
+    const topScore = this.state.highScore;
+
+
 
     if (imageAleardyClicked) {
         this.setState({
             friends: this.state.friends.sort(function (a, b) {
                 return 0.5 - Math.random();
             }),
+            friends,
             imageClicked: [],
             score: 0,
-            rightWrong:"Your Guessed Icorrectly!"
+            highScore: topScore,
+            printResult: "OOOhhhh Your Guess was Wrong!"
 
         });
         // alert("Ops. You click the same image twice!!. Try again")
 
 
     } else if (!imageAleardyClicked) {
+     
         const newScore = this.state.score + 1
-        this.setState({
-            friends: this.state.friends.sort(function (a, b) {
-                return 0.5 - Math.random();
-            }),
-            imageClicked: this.state.imageClicked.concat(currentImage),
-            score: newScore,
-            rightWrong:" Your Guessed Correctly!"
-        })
 
-        if (newScore >= this.state.highScore) {
-            const topScore = this.state.score + 1;
+        if (newScore === 1) {
+        this.setState({
+        friends,
+        score: newScore,
+        highScore: newScore,
+        printResult:`Congrats ! you had your first click `,  
+    }) 
+        }
+
+       else if (newScore >1) {
+        
+        //  if (newScore >= this.state.highScore) {
             this.setState({
-                highScore: topScore
+                // friends: this.state.friends.sort(function (a, b) {
+                //     return 0.5 - Math.random();
+                // }),
+                friends,
+                imageClicked: this.state.imageClicked.concat(currentImage),
+                score: newScore,
+                highScore: newScore,
+                printResult: `Well Done you just clicked `
             })
 
-            if (newScore === 12) {
+        }
+        // } else {
+
+        //     const topScore = this.state.score + 1;
+        //     this.setState({
+        //         highScore: topScore
+        //     })
+
+        // }
+
+            if (newScore === 8) {
             
                 // alert("you win");
                 this.setState({
@@ -62,12 +93,13 @@ class App extends Component {
                     }),
                     score: 0,
                     highScore: 0,
-                    rightWrong:"You win your memory is great!!"
+                    printResult:"You win your memory is great!!"
                 });
 
             }
-        }
+        
     }
+
 
 };
 //-----------------------------------------
@@ -82,12 +114,21 @@ render() {
         highScore = {
             this.state.highScore
         }
-        rightWrong= {
-            this.state.rightWrong
+
+        printResult= {
+            this.state.printResult
         }
        
+        
         /> 
-        <Jumbotron />
+        <Jumbotron 
+          printResult= {
+              this.state.printResult
+          }
+     
+        />
+        
+      
 
         <container > {
             this.state.friends.map(friend => (

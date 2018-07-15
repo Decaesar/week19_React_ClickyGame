@@ -4,7 +4,9 @@ import "./Footer.css";
 
 const Footer = () => (
 	<div className = "Footer">
-		<h3>Game by Ghusoon</h3>
+		<h3>  it is time for Nap !!	</h3>
+		<p> You look exhausted </p>
+
 	</div>
 );
 

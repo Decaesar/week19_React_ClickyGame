@@ -4,17 +4,26 @@
 	width: 100%;
 }
 
+
 h1{
 	text-align: center;
-	font-size: 90px;
+	font-size: 50px;
 	font-weight: bold;
-	padding: 90px 0 20px 0; 
-	color:  #CE0F44;
+	/* padding: 90px 0 0px 0;  */
+	color: darkblue;
 }
 
 h2{
 	text-align: center;
 	font-size: 25px;
-	padding-bottom: 40px;
-	color:  #CE0F44;
+	padding-bottom: 20px;
+	color: darkblue;
+}
+
+p{
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 0px;
+	color: darkblue;
+
 }

@@ -3,9 +3,10 @@ import "./Jumbotron.css";
 
 const Jumbotron = (props) => (
 	<header className = "header">
-		<h1> Clicky Game!</h1>
-		<h2>Click on an image to earn points, but don't click on any more than once! 
-		Click all 12 pics, and you win.</h2>
+        <h1> {props.printResult} </h1>
+		<h1> ICE COFFEE TIME </h1>
+		<h2> Click on each image once </h2>
 	</header>
+
 );
 export default Jumbotron;
