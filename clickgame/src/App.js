@@ -32,9 +32,8 @@ class App extends Component {
 
         const topScore = this.state.highScore;
 
-
-
         if (imageAleardyClicked) {
+        alert("Image Already Clicked");
             this.setState({
                 friends: this.state.friends.sort(function (a, b) {
                     return 0.5 - Math.random();
@@ -47,21 +46,25 @@ class App extends Component {
 
             });
 
+            console.log("TS"  + topScore);
+            console.log(this.state.highScore);
 
+            // console.log(highScore);
 
         } else if (!imageAleardyClicked) {
 
             const newScore = this.state.score + 1
-
+    
             if (newScore === 1) {
                 this.setState({
-                    friends,
+                    // friends,
                     score: newScore,
-                    highScore: newScore,
-                    printResult: `You just had your first coffee`,
-                })
-            } else if (newScore > 1) {
-
+                    // highScore: topScore,
+                    printResult: `Need more Coffee. Grab it quickly`,
+                }); 
+            }
+            // if (this.state.score > 1) {
+            //     console.log("HS" + + this.state.highScore);
                 if (newScore >= this.state.highScore) {
                     this.setState({
                         friends: this.state.friends.sort(function (a, b) {
@@ -69,21 +72,12 @@ class App extends Component {
                         }),
                         friends,
                         imageClicked: this.state.imageClicked.concat(currentImage),
+                        highScore: newScore,
                         score: newScore,
-                        // highScore: newScore,
                         printResult: `I need more ice coffee `
                     })
-
                 }
-                else {
-                    const topScore = this.state.score + 1;
-                    this.setState({
-                        highScore: topScore
-                    })
-    
-                }
-            }
-
+            
             if (newScore === 8) {
 
                 // alert("you win");
@@ -99,8 +93,6 @@ class App extends Component {
             }
 
         }
-
-
     };
     //-----------------------------------------
 

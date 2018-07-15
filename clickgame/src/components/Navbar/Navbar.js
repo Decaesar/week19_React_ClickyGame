@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 const Navbar = props => (
       
-  <nav class="navbar navbar-toggler navbar-light ">
+  <nav className="navbar navbar-toggler navbar-light ">
   
   <ul>
   <li className="Left"> Clicky Game </li>
